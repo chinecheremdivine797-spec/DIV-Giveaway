@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Enter the official DIV Giveaway for upcoming DIV apps and rewards.">
+  <title>DIV Giveaway — Official App Giveaway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="DIV Giveaway home"><span class="brand-mark">D</span><span>DIV<span class="brand-dot">.</span>GIVEAWAY</span></a>
+    <a class="header-link" href="admin.html">Admin</a>
+  </header>
+
+  <main>
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">🎁 OFFICIAL DIV GIVEAWAY</div>
+        <h1>Be first in line for what <span>DIV</span> is building.</h1>
+        <p class="hero-text">Join the giveaway for our upcoming apps. Register once for a chance to receive gift cards, early-access rewards and other launch surprises.</p>
+        <div class="hero-points">
+          <div><strong>01</strong><span>Register your details</span></div>
+          <div><strong>02</strong><span>Watch for giveaway updates</span></div>
+          <div><strong>03</strong><span>Selected winners are contacted by DIV</span></div>
+        </div>
+      </div>
+
+      <div class="card form-card" id="entry">
+        <div class="card-head">
+          <span class="step-label">GIVEAWAY ENTRY</span>
+          <h2>Enter your details</h2>
+          <p>Your information is used for this giveaway and related DIV updates.</p>
+        </div>
+        <form id="giveawayForm" novalidate>
+          <label>Full name <span>*</span><input name="fullName" autocomplete="name" required maxlength="100" placeholder="Your full name"></label>
+          <label>Email address <span>*</span><input name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></label>
+          <div class="two-col">
+            <label>Phone <small>optional</small><input name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="+234..."></label>
+            <label>Country <span>*</span><input name="country" autocomplete="country-name" required maxlength="60" placeholder="Nigeria"></label>
+          </div>
+          <label>Which DIV app interests you most? <span>*</span>
+            <select name="appInterest" required>
+              <option value="">Select an app</option>
+              <option>DIV Song AI</option>
+              <option>DIV Studio AI</option>
+              <option>DIV Med AI</option>
+              <option>JobGuard NG</option>
+              <option>Another DIV app</option>
+              <option>All upcoming DIV apps</option>
+            </select>
+          </label>
+          <label>Social handle <small>optional</small><input name="socialHandle" maxlength="100" placeholder="@username"></label>
+          <label class="check-row"><input name="consent" type="checkbox" required><span>I agree to the giveaway rules and allow DIV to contact me about this giveaway and upcoming apps.</span></label>
+          <button class="primary-btn" type="submit">Join the Giveaway <span>→</span></button>
+          <p class="form-note">Never enter a bank PIN, password or card PIN here. DIV will never ask for those details.</p>
+          <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="info-grid section-wrap">
+      <article class="info-card"><div class="icon">🎟️</div><h3>Real giveaway entries</h3><p>Every completed registration is prepared for the secure giveaway database.</p></article>
+      <article class="info-card"><div class="icon">🔐</div><h3>Private participant data</h3><p>Participant records are designed to stay in a secure backend, not in public GitHub files.</p></article>
+      <article class="info-card"><div class="icon">🚀</div><h3>Upcoming DIV apps</h3><p>Tell us which app you want to see and stay connected for launch news.</p></article>
+    </section>
+
+    <section class="rules section-wrap">
+      <div><span class="eyebrow">GOOD TO KNOW</span><h2>Simple. Fair. Official.</h2></div>
+      <div class="rules-list"><p><b>Eligibility:</b> One entry per person unless official rules say otherwise.</p><p><b>Selection:</b> DIV may select winners from eligible entries and contact them using the details submitted.</p><p><b>Safety:</b> Never pay anyone claiming they need a fee to release a DIV gift card. Verify suspicious messages through official DIV channels.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 DIV Giveaway</span><span>Built for the DIV app community</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
