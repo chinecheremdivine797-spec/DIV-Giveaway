@@ -1,14 +1,17 @@
--- DIV GIVEAWAY — Supabase migration for required verification consent
--- Run this in Supabase SQL Editor because the original schema is already installed.
+-- DIV GIVEAWAY — Supabase public registration security repair
+-- Run this file in Supabase SQL Editor once.
 
 begin;
 
-alter table public.participants
-  add column if not exists verification_consent boolean not null default false;
+-- Public registrations must be allowed through RLS.
+alter table public.participants enable row level security;
 
 drop policy if exists "Public can submit giveaway entries" on public.participants;
+drop policy if exists "Anyone can submit giveaway entries" on public.participants;
+
 create policy "Public can submit giveaway entries"
 on public.participants
+as permissive
 for insert
 to anon
 with check (
@@ -26,5 +29,16 @@ with check (
   and gift_card_sent_at is null
   and gift_card_claimed_at is null
 );
+
+-- Keep admin authorization protected.
+alter table public.admin_users enable row level security;
+
+drop policy if exists "Admins can read own admin record" on public.admin_users;
+create policy "Admins can read own admin record"
+on public.admin_users
+as permissive
+for select
+to authenticated
+using (user_id = auth.uid());
 
 commit;
