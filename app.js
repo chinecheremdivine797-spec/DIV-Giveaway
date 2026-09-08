@@ -47,9 +47,21 @@ form.addEventListener('submit', async (event) => {
     form.reset();
   } catch (error) {
     console.error('DIV Giveaway registration error:', error);
+
+    let userMessage = 'We could not submit your entry. Please try again.';
+    if (error?.code === '23505') {
+      userMessage = 'This email has already been registered for the giveaway.';
+    } else if (error?.code === '42501' || /row-level security|permission denied/i.test(error?.message || '')) {
+      userMessage = 'The giveaway database is blocking public registrations. The DIV database security policy needs to be updated.';
+    } else if (error?.code === 'PGRST204') {
+      userMessage = 'The giveaway database is missing a required field. The DIV database schema needs to be updated.';
+    } else if (error?.code === 'PGRST205') {
+      userMessage = 'The giveaway database table could not be found. Please check the Supabase setup.';
+    } else if (error?.message) {
+      userMessage = `Registration failed: ${error.message}`;
+    }
+
     message.className = 'form-message error show';
-    message.textContent = error.code === '23505'
-      ? 'This email has already been registered for the giveaway.'
-      : 'We could not submit your entry. Please try again.';
+    message.textContent = userMessage;
   }
 });
