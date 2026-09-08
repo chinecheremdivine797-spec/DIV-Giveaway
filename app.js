@@ -54,7 +54,7 @@ form.addEventListener('submit', async (event) => {
     if (error?.code === '23505') {
       userMessage = 'This email has already been registered for the giveaway.';
     } else if (error?.code === '42501' || /row-level security|permission denied/i.test(error?.message || '')) {
-      userMessage = 'DIV registration access was just repaired. Please refresh this page completely (Ctrl+Shift+R) and submit again.';
+      userMessage = 'DIV registration access is being refreshed. Please wait a moment, refresh the page, and try again.';
     } else if (error?.code === 'PGRST204') {
       userMessage = 'The giveaway database is missing a required field. The DIV database schema needs to be updated.';
     } else if (error?.code === 'PGRST205') {
