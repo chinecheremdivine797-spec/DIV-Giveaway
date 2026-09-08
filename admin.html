@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DIV Giveaway — Admin</title><link rel="stylesheet" href="styles.css"></head>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DIV Giveaway — Admin</title><link rel="stylesheet" href="styles.css">
+</head>
 <body>
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">D</span><span>DIV<span class="brand-dot">.</span>GIVEAWAY</span></a><a class="header-link" href="index.html">Public site</a></header>
 <main class="section-wrap" style="padding-top:50px;padding-bottom:80px">
-  <section id="loginPanel" class="card form-card" style="max-width:480px;margin:30px auto">
-    <span class="step-label">ADMIN ACCESS</span><h1 style="font-size:32px;margin:8px 0">Giveaway control center</h1><p style="color:var(--muted);font-size:13px">Sign in with the authorized admin account. Authentication must be handled by the backend.</p>
-    <form id="loginForm"><label>Email<input name="email" type="email" required autocomplete="email" placeholder="admin email"></label><label>Password<input name="password" type="password" required autocomplete="current-password" placeholder="••••••••"></label><button class="primary-btn" type="submit">Sign in <span>→</span></button><div id="loginMessage" class="form-message" role="status"></div></form>
-  </section>
-
-  <section id="dashboard" hidden>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px"><div><span class="step-label">ADMIN DASHBOARD</span><h1 style="font-size:34px;margin:6px 0">Participants</h1><p style="color:var(--muted);margin:0;font-size:13px">Review entries, select winners and record gift-card delivery.</p></div><button id="logoutBtn" class="header-link" type="button">Sign out</button></div>
-    <div class="info-grid" style="padding-bottom:28px"><article class="info-card"><span class="step-label">ENTRIES</span><h2 id="totalEntries">0</h2><p>Total participants</p></article><article class="info-card"><span class="step-label">SELECTED</span><h2 id="selectedEntries">0</h2><p>Selected winners</p></article><article class="info-card"><span class="step-label">SENT</span><h2 id="sentEntries">0</h2><p>Gift cards sent</p></article></div>
-    <div class="card" style="padding:20px;border-radius:17px;overflow:auto"><div style="display:flex;gap:12px;margin-bottom:16px"><input id="search" placeholder="Search name or email" style="max-width:360px;margin:0"><select id="statusFilter" style="max-width:190px;margin:0"><option value="all">All statuses</option><option value="selected">Selected</option><option value="sent">Gift card sent</option><option value="pending">Pending</option></select></div><table style="width:100%;border-collapse:collapse;min-width:850px"><thead><tr><th>Name</th><th>Email</th><th>Country</th><th>App</th><th>Joined</th><th>Status</th><th>Action</th></tr></thead><tbody id="participantsBody"><tr><td colspan="7" style="padding:25px;color:var(--muted)">Backend connection required.</td></tr></tbody></table></div>
-  </section>
+<section id="loginPanel" class="card form-card" style="max-width:480px;margin:30px auto">
+<span class="step-label">ADMIN ACCESS</span><h1 style="font-size:32px;margin:8px 0">Giveaway control center</h1>
+<p style="color:var(--muted);font-size:13px">Sign in with the authorized DIV admin account.</p>
+<form id="loginForm"><label>Email<input name="email" type="email" required autocomplete="email" placeholder="admin email"></label><label>Password<input name="password" type="password" required autocomplete="current-password" placeholder="••••••••"></label><button class="primary-btn" type="submit">Sign in <span>→</span></button><div id="loginMessage" class="form-message" role="status"></div></form>
+</section>
+<section id="dashboard" hidden>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px"><div><span class="step-label">ADMIN DASHBOARD</span><h1 style="font-size:34px;margin:6px 0">Participants</h1><p style="color:var(--muted);margin:0;font-size:13px">Review entries, verify requirements, select winners and record gift-card delivery.</p></div><button id="logoutBtn" class="header-link" type="button">Sign out</button></div>
+<div class="info-grid" style="padding-bottom:28px"><article class="info-card"><span class="step-label">ENTRIES</span><h2 id="totalEntries">0</h2><p>Total participants</p></article><article class="info-card"><span class="step-label">VERIFIED</span><h2 id="verifiedEntries">0</h2><p>Verified entries</p></article><article class="info-card"><span class="step-label">SELECTED</span><h2 id="selectedEntries">0</h2><p>Selected winners</p></article><article class="info-card"><span class="step-label">SENT</span><h2 id="sentEntries">0</h2><p>Gift cards sent</p></article></div>
+<div class="card" style="padding:20px;border-radius:17px;overflow:auto"><div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap"><input id="search" placeholder="Search name or email" style="max-width:360px;margin:0"><select id="statusFilter" style="max-width:190px;margin:0"><option value="all">All statuses</option><option value="eligible">Eligible</option><option value="selected">Selected</option><option value="sent">Gift card sent</option><option value="pending">Pending verification</option><option value="verified">Verified</option></select></div>
+<table style="width:100%;border-collapse:collapse;min-width:1250px"><thead><tr><th>Name</th><th>Email</th><th>Country</th><th>App</th><th>Requirements</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead><tbody id="participantsBody"><tr><td colspan="8" style="padding:25px;color:var(--muted)">Loading…</td></tr></tbody></table></div>
+</section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="admin.js"></script>
 </body></html>
